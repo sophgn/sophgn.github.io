@@ -110,21 +110,21 @@
 
 
 
-  <meta name="description" content="在理论课程中，我们已经学习了现代资产组合理论，利用资产组合来分散证券投资的非系统风险。在资产组合理论中，关键是找到风险资产组合的有效边界，然后通过投资者的无差异曲线和资产组合的有效边界相切，找到切点就是最优的资产组合，进而可以找到无风险资产和风险资产组合的有效边界，最终确定个人的最优资产组合。 本文介绍如何运用 Python 找出最优的资产组合有效边界。  理论基础 投资学中的资产组合理论使用资产">
+  <meta name="description" content="在理论课程中，我们已经学习了现代投资组合理论，利用投资组合来分散证券投资的非系统风险。在投资组合理论中，关键是找到风险投资组合的有效边界，然后通过投资者的无差异曲线和投资组合的有效边界相切，找到切点就是最优的投资组合，进而可以找到无风险资产和风险投资组合的有效边界，最终确定个人的最优投资组合。 本文介绍如何运用 Python 找出最优的投资组合有效边界。">
 <meta name="keywords" content="Python,金融">
 <meta property="og:type" content="article">
-<meta property="og:title" content="股票资产组合的有效前沿 Python 实现（上）">
+<meta property="og:title" content="股票投资组合的有效前沿 Python 实现（上）">
 <meta property="og:url" content="http://sophgn.com/2018/05/10/efficient-frontier-in-python_2-1/index.html">
 <meta property="og:site_name" content="zjeuhpiung&#39;s blog">
-<meta property="og:description" content="在理论课程中，我们已经学习了现代资产组合理论，利用资产组合来分散证券投资的非系统风险。在资产组合理论中，关键是找到风险资产组合的有效边界，然后通过投资者的无差异曲线和资产组合的有效边界相切，找到切点就是最优的资产组合，进而可以找到无风险资产和风险资产组合的有效边界，最终确定个人的最优资产组合。 本文介绍如何运用 Python 找出最优的资产组合有效边界。  理论基础 投资学中的资产组合理论使用资产">
+<meta property="og:description" content="在理论课程中，我们已经学习了现代投资组合理论，利用投资组合来分散证券投资的非系统风险。在投资组合理论中，关键是找到风险投资组合的有效边界，然后通过投资者的无差异曲线和投资组合的有效边界相切，找到切点就是最优的投资组合，进而可以找到无风险资产和风险投资组合的有效边界，最终确定个人的最优投资组合。 本文介绍如何运用 Python 找出最优的投资组合有效边界。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://sophgn.com/2018/05/10/efficient-frontier-in-python_2-1/wangjingze.gif">
 <meta property="og:image" content="http://sophgn.com/2018/05/10/efficient-frontier-in-python_2-1/return_rate.png">
 <meta property="og:image" content="http://sophgn.com/2018/05/10/efficient-frontier-in-python_2-1/monte_carlo.png">
-<meta property="og:updated_time" content="2018-05-10T13:31:27.015Z">
+<meta property="og:updated_time" content="2018-05-23T05:59:58.790Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="股票资产组合的有效前沿 Python 实现（上）">
-<meta name="twitter:description" content="在理论课程中，我们已经学习了现代资产组合理论，利用资产组合来分散证券投资的非系统风险。在资产组合理论中，关键是找到风险资产组合的有效边界，然后通过投资者的无差异曲线和资产组合的有效边界相切，找到切点就是最优的资产组合，进而可以找到无风险资产和风险资产组合的有效边界，最终确定个人的最优资产组合。 本文介绍如何运用 Python 找出最优的资产组合有效边界。  理论基础 投资学中的资产组合理论使用资产">
+<meta name="twitter:title" content="股票投资组合的有效前沿 Python 实现（上）">
+<meta name="twitter:description" content="在理论课程中，我们已经学习了现代投资组合理论，利用投资组合来分散证券投资的非系统风险。在投资组合理论中，关键是找到风险投资组合的有效边界，然后通过投资者的无差异曲线和投资组合的有效边界相切，找到切点就是最优的投资组合，进而可以找到无风险资产和风险投资组合的有效边界，最终确定个人的最优投资组合。 本文介绍如何运用 Python 找出最优的投资组合有效边界。">
 <meta name="twitter:image" content="http://sophgn.com/2018/05/10/efficient-frontier-in-python_2-1/wangjingze.gif">
 
 
@@ -142,7 +142,7 @@
   };
 </script>
 
-  <title>股票资产组合的有效前沿 Python 实现（上） | zjeuhpiung's blog</title>
+  <title>股票投资组合的有效前沿 Python 实现（上） | zjeuhpiung's blog</title>
   
 
 
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">股票资产组合的有效前沿 Python 实现（上）
+          <h1 class="post-title" itemprop="name headline">股票投资组合的有效前沿 Python 实现（上）
               
             
           </h1>
@@ -350,6 +350,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/10/efficient-frontier-in-python_2-1/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/10/efficient-frontier-in-python_2-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -374,11 +384,11 @@
       
 
       
-        <p>在理论课程中，我们已经学习了现代资产组合理论，利用资产组合来分散证券投资的非系统风险。在资产组合理论中，关键是找到风险资产组合的有效边界，然后通过投资者的无差异曲线和资产组合的有效边界相切，找到切点就是最优的资产组合，进而可以找到无风险资产和风险资产组合的有效边界，最终确定个人的最优资产组合。</p>
-<p>本文介绍如何运用 Python 找出最优的资产组合有效边界。 <img src="/2018/05/10/efficient-frontier-in-python_2-1/wangjingze.gif"></p>
+        <p>在理论课程中，我们已经学习了现代投资组合理论，利用投资组合来分散证券投资的非系统风险。在投资组合理论中，关键是找到风险投资组合的有效边界，然后通过投资者的无差异曲线和投资组合的有效边界相切，找到切点就是最优的投资组合，进而可以找到无风险资产和风险投资组合的有效边界，最终确定个人的最优投资组合。</p>
+<p>本文介绍如何运用 Python 找出最优的投资组合有效边界。 <img src="/2018/05/10/efficient-frontier-in-python_2-1/wangjingze.gif"></p>
+<a id="more"></a>
 <h2 id="理论基础">理论基础</h2>
-<p>投资学中的资产组合理论使用资产组合的收益率均值代表收益，资产组合的方差代表风险。最优的投资组合可以理解为，在资产组合的预期收益一定情况下，寻找最小方差（风险）的资产组合；或者在方差（风险）一定的情况下，寻找最高预期收益的资产组合。公式如下:<br>
-<span class="math display">\[
+<p>马克维茨投资组合理论使用投资组合的收益率均值代表收益，投资组合的方差代表风险。最优的投资组合可以理解为，在投资组合的预期收益一定情况下，寻找最小方差（风险）的投资组合；或者在方差（风险）一定的情况下，寻找最高预期收益的投资组合。马克维茨模型的公式如下: <span class="math display">\[
 Min\,\sigma_p^2=\sum_{i=1}^n\sum_{j=1}^n\omega_i\omega_jcov(r_i,r_j)\\
 s.t.
 \begin{cases}
@@ -386,29 +396,23 @@ s.t.
 E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
 \sum_{i=1}^n\omega_i=1
 \end{cases}
-\]</span></p>
-<p>其中给定了三个约束条件：<br>
+\]</span> 其中给定了三个约束条件：<br>
 <span class="math inline">\(\omega_i\ge0\)</span>，表示组合种各股票权重不能为负，即不能卖空；<br>
-<span class="math inline">\(E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\)</span>，表示指定资产组合的收益率，资产组合的收益率是各组成股票的加权平均，权重为投资资金的比重；<br>
+<span class="math inline">\(E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\)</span>，表示指定投资组合的收益率，投资组合的收益率是各组成股票的加权平均，权重为投资资金的比重；<br>
 <span class="math inline">\(\sum_{i=1}^n\omega_i=1\)</span>，表示组合中各股票的权重之和为1。</p>
+<p>该模型是一个二次规划问题</p>
 <h2 id="获取数据">获取数据</h2>
-<p>首先随便选几只股票</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">stocks = [</span><br><span class="line">    <span class="string">'600211'</span>,  <span class="comment"># 西藏药业</span></span><br><span class="line">    <span class="string">'002035'</span>,  <span class="comment"># 华帝股份</span></span><br><span class="line">    <span class="string">'002695'</span>,  <span class="comment"># 煌上煌</span></span><br><span class="line">    <span class="string">'300364'</span>,  <span class="comment"># 中文在线</span></span><br><span class="line">    <span class="string">'300404'</span>,  <span class="comment"># 博济医药</span></span><br><span class="line">    <span class="string">'300520'</span>,  <span class="comment"># 科大国创</span></span><br><span class="line">    <span class="string">'600572'</span>]  <span class="comment"># 康恩贝</span></span><br><span class="line">noa = len(stocks)  <span class="comment"># 股票数量，后面要用</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://tushare.org/" target="_blank" rel="noopener">Tushare</a> 是一个免费、开源的 Python 财经数据接口包。有了它，就不必再<del>吃金坷垃</del>自己造轮子写爬虫。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(code)</span>:</span>  <span class="comment"># code 为字符串，股票代码</span></span><br><span class="line">    file = code + <span class="string">'.csv'</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(file):  <span class="comment"># 避免重复下载数据</span></span><br><span class="line">        df = pd.read_csv(file)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df = ts.get_k_data(code, ktype=<span class="string">'D'</span>)  <span class="comment"># 获取指定股票日数据，默认前复权</span></span><br><span class="line">        df.to_csv(file)  <span class="comment"># 将下载的数据保存为 csv 文件，以备下次使用</span></span><br><span class="line">    <span class="keyword">return</span> df.set_index(<span class="string">'date'</span>)[<span class="string">'close'</span>]  <span class="comment"># 返回以日期为索引的收盘价</span></span><br></pre></td></tr></table></figure>
+<p>首先随便选几只股票： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">stocks = [</span><br><span class="line">    <span class="string">'600211'</span>,  <span class="comment"># 西藏药业</span></span><br><span class="line">    <span class="string">'002035'</span>,  <span class="comment"># 华帝股份</span></span><br><span class="line">    <span class="string">'002695'</span>,  <span class="comment"># 煌上煌</span></span><br><span class="line">    <span class="string">'300364'</span>,  <span class="comment"># 中文在线</span></span><br><span class="line">    <span class="string">'300404'</span>,  <span class="comment"># 博济医药</span></span><br><span class="line">    <span class="string">'300520'</span>,  <span class="comment"># 科大国创</span></span><br><span class="line">    <span class="string">'600572'</span>]  <span class="comment"># 康恩贝</span></span><br><span class="line">noa = len(stocks)  <span class="comment"># 股票数量，后面要用</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://tushare.org/" target="_blank" rel="noopener">Tushare</a> 是一个免费、开源的 Python 财经数据接口包。有了它，就不必再<del>吃金坷垃</del>自己造轮子写爬虫。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(code)</span>:</span>  <span class="comment"># code 为字符串，股票代码</span></span><br><span class="line">    file = code + <span class="string">'.csv'</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(file):  <span class="comment"># 避免重复下载数据</span></span><br><span class="line">        df = pd.read_csv(file)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        df = ts.get_k_data(code, ktype=<span class="string">'D'</span>)  <span class="comment"># 获取指定股票日数据，默认前复权</span></span><br><span class="line">        df.to_csv(file)  <span class="comment"># 将下载的数据保存为 csv 文件，以备下次使用</span></span><br><span class="line">    <span class="keyword">return</span> df.set_index(<span class="string">'date'</span>)[<span class="string">'close'</span>]  <span class="comment"># 返回以日期为索引的收盘价</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="对数收益率">对数收益率</h2>
-<p>有了收盘价，就能计算出收益率。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_rtn</span><span class="params">(codes)</span>:</span>  <span class="comment"># codes 为股票代码的列表</span></span><br><span class="line">    df = pd.DataFrame(columns=codes)  <span class="comment"># 创建空的 df，并为每个股票代码创建一个空的列</span></span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> codes:</span><br><span class="line">        data = get_data(code)</span><br><span class="line">        df[code] = data  <span class="comment"># 汇总收盘价到对应列</span></span><br></pre></td></tr></table></figure>
-<p>由于股票会有停牌的情况，数据中有大量的空缺值， 为了完成后面的计算，这里简单采用线性插值补齐。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 接上段，建议自备游标卡尺</span></span><br><span class="line">    df = df.interpolate()  <span class="comment"># 线性插值补齐停牌数据</span></span><br><span class="line">    df = df.dropna()  <span class="comment"># 丢弃起始与结尾无法补齐的部分</span></span><br><span class="line">    <span class="keyword">return</span> np.log((df/df.shift(<span class="number">1</span>))[<span class="number">1</span>:]) <span class="comment"># 对数收益率</span></span><br></pre></td></tr></table></figure>
-<p>最近60个交易日对数收益率折线图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">rtns = get_rtn(stocks)</span><br><span class="line">rtns[<span class="number">-60</span>:].plot()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>有了收盘价，就能计算出收益率。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_rtn</span><span class="params">(codes)</span>:</span>  <span class="comment"># codes 为股票代码的列表</span></span><br><span class="line">    df = pd.DataFrame(columns=codes)  <span class="comment"># 创建空的 df，并为每个股票代码创建一个空的列</span></span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> codes:</span><br><span class="line">        data = get_data(code)</span><br><span class="line">        df[code] = data  <span class="comment"># 汇总收盘价到对应列</span></span><br></pre></td></tr></table></figure></p>
+<p>由于股票会有停牌的情况，数据中有大量的空缺值， 为了完成后面的计算，这里简单采用线性插值补齐。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 接上段，建议自备游标卡尺</span></span><br><span class="line">    df = df.interpolate()  <span class="comment"># 线性插值补齐停牌数据</span></span><br><span class="line">    df = df.dropna()  <span class="comment"># 丢弃起始与结尾无法补齐的部分</span></span><br><span class="line">    <span class="keyword">return</span> np.log((df/df.shift(<span class="number">1</span>))[<span class="number">1</span>:]) <span class="comment"># 对数收益率</span></span><br></pre></td></tr></table></figure></p>
+<p>最近60个交易日对数收益率折线图: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">rtns = get_rtn(stocks)</span><br><span class="line">rtns[<span class="number">-60</span>:].plot()</span><br></pre></td></tr></table></figure></p>
 <div class="figure">
 <img src="/2018/05/10/efficient-frontier-in-python_2-1/return_rate.png">
 
 </div>
-<p>年化期望收益、协方差矩阵：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exp_rtns = rtns.mean() * <span class="number">252</span></span><br><span class="line">exp_cov  = rtns.cov() * <span class="number">252</span></span><br></pre></td></tr></table></figure>
+<p>年化期望收益、协方差矩阵： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exp_rtns = rtns.mean() * <span class="number">252</span></span><br><span class="line">exp_cov  = rtns.cov() * <span class="number">252</span></span><br></pre></td></tr></table></figure></p>
 <p>得到的年化期望收益为：</p>
 <table>
 <thead>
@@ -426,7 +430,7 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
 <tr class="odd">
 <td align="right">-0.0208</td>
 <td align="right">0.3681</td>
-<td align="right">-0.08312</td>
+<td align="right">-0.0831</td>
 <td align="right">-0.4376</td>
 <td align="right">-0.2748</td>
 <td align="right">0.7577</td>
@@ -435,13 +439,11 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
 </tbody>
 </table>
 <h2 id="蒙特卡洛模拟">蒙特卡洛模拟</h2>
-<p>随机生成大量投资组合比重，计算出每个组合的方差和收益</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_weights</span><span class="params">(noa)</span>:</span></span><br><span class="line">    weights = np.random.random(noa)  <span class="comment"># 生成组合中资产种类个随机数</span></span><br><span class="line">    <span class="keyword">return</span> weights / np.sum(weights)  <span class="comment"># 使其和为 1，即组合中各资产的比重</span></span><br><span class="line"></span><br><span class="line">port_returns = []  <span class="comment"># 各组合的期望收益</span></span><br><span class="line">port_risks = []  <span class="comment"># 各组合的标准差</span></span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> range(<span class="number">10</span>**<span class="number">5</span>):  <span class="comment"># 模拟十万次</span></span><br><span class="line">    weights = random_weights(noa)</span><br><span class="line">    port_returns.append(np.sum(exp_rtns*weights))</span><br><span class="line">    port_risks.append(np.sqrt(np.dot(weights.T, np.dot(exp_cov, weights))))</span><br></pre></td></tr></table></figure>
-<p>画出散点图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">port_returns = np.array(port_returns)</span><br><span class="line">port_risks = np.array(port_risks)</span><br><span class="line">plt.scatter(port_risks,port_returns,c=port_returns/port_risks,marker=<span class="string">'.'</span>)</span><br><span class="line">plt.grid(<span class="keyword">True</span>)</span><br><span class="line">plt.xlabel(<span class="string">'excepted volatility'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'expected return'</span>)</span><br><span class="line">plt.colorbar(label = <span class="string">'Sharpe ratio'</span>)</span><br></pre></td></tr></table></figure>
+<p>随机生成大量投资组合比重，计算出每个组合的方差和收益: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_weights</span><span class="params">(noa)</span>:</span></span><br><span class="line">    weights = np.random.random(noa)  <span class="comment"># 生成组合中资产种类个随机数</span></span><br><span class="line">    <span class="keyword">return</span> weights / np.sum(weights)  <span class="comment"># 使其和为 1，即组合中各资产的比重</span></span><br><span class="line"></span><br><span class="line">port_returns = []  <span class="comment"># 各组合的期望收益</span></span><br><span class="line">port_risks = []  <span class="comment"># 各组合的标准差</span></span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> range(<span class="number">10</span>**<span class="number">5</span>):  <span class="comment"># 模拟十万次</span></span><br><span class="line">    weights = random_weights(noa)</span><br><span class="line">    port_returns.append(np.sum(exp_rtns*weights))</span><br><span class="line">    port_risks.append(np.sqrt(np.dot(weights.T, np.dot(exp_cov, weights))))</span><br></pre></td></tr></table></figure></p>
+<p>画出散点图: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">port_returns = np.array(port_returns)</span><br><span class="line">port_risks = np.array(port_risks)</span><br><span class="line">plt.scatter(port_risks,port_returns,c=port_returns/port_risks,marker=<span class="string">'.'</span>)</span><br><span class="line">plt.grid(<span class="keyword">True</span>)</span><br><span class="line">plt.xlabel(<span class="string">'excepted volatility'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'expected return'</span>)</span><br><span class="line">plt.colorbar(label = <span class="string">'Sharpe ratio'</span>)</span><br></pre></td></tr></table></figure></p>
 <div class="figure">
-<img src="/2018/05/10/efficient-frontier-in-python_2-1/monte_carlo.png">
-
+<img src="/2018/05/10/efficient-frontier-in-python_2-1/monte_carlo.png" alt="蒙特卡洛模拟结果">
+<p class="caption">蒙特卡洛模拟结果</p>
 </div>
 <p>未完待续</p>
 
@@ -520,6 +522,22 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/efficient-frontier-in-python-2-2/" rel="prev" title="股票投资组合的有效前沿 Python 实现（下）">
+                股票投资组合的有效前沿 Python 实现（下） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
       
@@ -540,6 +558,13 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -589,7 +614,7 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -603,8 +628,6 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -839,6 +862,43 @@ E(R_p)=\sum_{i=1}^n\omega_iE(R_i)=R_0\\[2ex]
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'sophgn',
+            repo: 'sophgn.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '0bf6d3d41842f1c49f5e145fe175283b3fb6cff9',
+            
+                client_id: '01670b4e39dad1b58c24'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
