@@ -110,20 +110,20 @@
 
 
 
-  <meta name="description" content="续上一篇 常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。 1import scipy.optimize as sco">
+  <meta name="description" content="续上一篇 常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。 1import scipy.optimize as sco 约束条件 \(\sum_{i=1}^n\omega_i=1\)且\(\forall\omega_i\in[0,1]\)： 12cons = (&amp;#123;&apos;type&apos;: &apos;eq&apos;">
 <meta name="keywords" content="Python,金融">
 <meta property="og:type" content="article">
 <meta property="og:title" content="股票投资组合的有效前沿 Python 实现（下）">
 <meta property="og:url" content="http://sophgn.com/2018/05/23/efficient-frontier-in-python-2-2/index.html">
 <meta property="og:site_name" content="zjeuhpiung&#39;s blog">
-<meta property="og:description" content="续上一篇 常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。 1import scipy.optimize as sco">
+<meta property="og:description" content="续上一篇 常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。 1import scipy.optimize as sco 约束条件 \(\sum_{i=1}^n\omega_i=1\)且\(\forall\omega_i\in[0,1]\)： 12cons = (&amp;#123;&apos;type&apos;: &apos;eq&apos;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://sophgn.com/2018/05/23/efficient-frontier-in-python-2-2/results.png">
 <meta property="og:image" content="http://sophgn.com/2018/05/23/efficient-frontier-in-python-2-2/weights.png">
-<meta property="og:updated_time" content="2018-05-23T08:21:22.263Z">
+<meta property="og:updated_time" content="2018-05-23T08:23:29.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="股票投资组合的有效前沿 Python 实现（下）">
-<meta name="twitter:description" content="续上一篇 常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。 1import scipy.optimize as sco">
+<meta name="twitter:description" content="续上一篇 常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。 1import scipy.optimize as sco 约束条件 \(\sum_{i=1}^n\omega_i=1\)且\(\forall\omega_i\in[0,1]\)： 12cons = (&amp;#123;&apos;type&apos;: &apos;eq&apos;">
 <meta name="twitter:image" content="http://sophgn.com/2018/05/23/efficient-frontier-in-python-2-2/results.png">
 
 
@@ -386,8 +386,8 @@
         <p>续<a href="http://sophgn.com/2018/05/10/efficient-frontier-in-python_2-1/">上一篇</a></p>
 <p>常见的用于求解二次规划问题的 Python 包有 pyOpt、CVXOPT、scipy.optimize 等。本文选用 scipy.optimize。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.optimize <span class="keyword">as</span> sco</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <p>约束条件 <span class="math inline">\(\sum_{i=1}^n\omega_i=1\)</span>且<span class="math inline">\(\forall\omega_i\in[0,1]\)</span>： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cons = (&#123;<span class="string">'type'</span>: <span class="string">'eq'</span>, <span class="string">'fun'</span>: <span class="keyword">lambda</span> x: np.sum(x) - <span class="number">1</span>&#125;)</span><br><span class="line">bnds = tuple((<span class="number">0</span>,<span class="number">1</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(noa))</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>待求解函数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_returns</span><span class="params">(weights)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.sum(rtns.mean()*weights)*<span class="number">252</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_oppo_sharpe</span><span class="params">(weights)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> -get_returns(weights)/get_risks(weights)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_risks</span><span class="params">(weights)</span>:</span></span><br><span class="line">    variance = np.dot(weights.T,np.dot(rtns.cov()*<span class="number">252</span>,weights))</span><br><span class="line">    <span class="keyword">return</span> np.sqrt(variance)</span><br></pre></td></tr></table></figure></p>
 <p>夏普比率最大组合：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">opt_sharpe = sco.minimize(</span><br><span class="line">    get_oppo_sharpe,  <span class="comment"># 最大化夏普比率即最小化夏普比率的负值</span></span><br><span class="line">    noa*[<span class="number">1</span>/noa],</span><br><span class="line">    method=<span class="string">'SLSQP'</span>,</span><br><span class="line">    bounds=bnds,</span><br><span class="line">    constraints=cons)</span><br><span class="line"></span><br><span class="line">plt.plot(</span><br><span class="line">    get_risks(opt_sharpe[<span class="string">'x'</span>]),</span><br><span class="line">    get_returns(opt_sharpe[<span class="string">'x'</span>]),</span><br><span class="line">    <span class="string">'b.'</span>,  <span class="comment"># 蓝色</span></span><br><span class="line">    markersize = <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
